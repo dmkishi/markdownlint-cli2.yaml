@@ -1,0 +1,18 @@
+{
+  "name": "@dmkishi/markdownlint-cli2.yaml",
+  "version": "0.0.1-beta.1",
+  "description": "Install .markdownlint-cli2.yaml config file to project root",
+  "author": "DM Kishi <dm.kishi@gmail.com>",
+  "type": "module",
+  "files": [
+    ".markdownlint-cli2.yaml",
+    "install.js"
+  ],
+  "scripts": {
+    "postinstall": "node install.js",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7"
+  }
+}
