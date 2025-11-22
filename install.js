@@ -5,29 +5,12 @@ import { fileURLToPath } from 'url';
 
 const hasForceFlag = process.argv.includes('--force');
 
-const thisFileName = fileURLToPath(import.meta.url);
-const thisDirName = dirname(thisFileName);
-
-/*
- * Project root should be three levels up from this file:
- *   `PROJECT_ROOT/node_modules/.bin/install.js`.
- */
-const projectRootPath = join(thisDirName, '..', '..', '..');
-const sourceConfigPath = join(thisDirName, '.markdownlint-cli2.yaml');
-const destConfigPath = join(projectRootPath, '.markdownlint-cli2.yaml');
-
-function installConfig(message) {
-  copyFileSync(sourceConfigPath, destConfigPath);
-  console.log(message);
-}
+const sourceConfigPath = findSourceConfigPath();
+const destConfigPath = join(findProjectRootDir(), '.markdownlint-cli2.yaml');
+const configInProjectRootDir = existsSync(destConfigPath);
 
 try {
-  if (!thisDirName.includes('node_modules')) {
-    console.log('❌ SKIPPED: Does not install in development environment');
-    process.exit(0);
-  }
-
-  if (existsSync(destConfigPath)) {
+  if (configInProjectRootDir) {
     if (hasForceFlag) {
       installConfig('✅ Overwrote ".markdownlint-cli2.yaml" at project-root');
     } else {
@@ -41,4 +24,40 @@ try {
 } catch (error) {
   console.error('❌ FAIL installing configuration file:', error.message);
   process.exit(1);
+}
+
+/**
+ * Find config file in this script's directory.
+ */
+function findSourceConfigPath() {
+  const thisFileName = fileURLToPath(import.meta.url);
+  const thisDirName = dirname(thisFileName);
+  const sourceConfigPath = join(thisDirName, '.markdownlint-cli2.yaml');
+  return sourceConfigPath;
+}
+
+/**
+ * Find project-root directory from where this script is called.
+ */
+function findProjectRootDir(startDir = process.cwd()) {
+  let currentDir = startDir;
+
+  while (true) {
+    const packagePath = join(currentDir, 'package.json');
+    if (fs.existsSync(packagePath)) {
+      return currentDir;
+    }
+
+    const parentDir = path.dirname(currentDir);
+    if (parentDir === currentDir) {
+      throw new Error('Not inside a Node.js project (no package.json found)');
+    }
+
+    currentDir = parentDir;
+  }
+}
+
+function installConfig(message) {
+  copyFileSync(sourceConfigPath, destConfigPath);
+  console.log(message);
 }
