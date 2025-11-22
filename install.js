@@ -29,14 +29,14 @@ try {
 
   if (existsSync(destConfigPath)) {
     if (hasForceFlag) {
-      installConfig('✅ Overwrote ".markdownlint-cli2.yaml" at project root');
+      installConfig('✅ Overwrote ".markdownlint-cli2.yaml" at project-root');
     } else {
       // Two spaces after the emoji necessary to print a space correctly.
-      console.log('⚠️ SKIPPED: ".markdownlint-cli2.yaml" already exists in project root');
+      console.log('⚠️ SKIPPED: ".markdownlint-cli2.yaml" already exists in project-root');
       console.log('Use "--force" flag to overwrite.');
     }
   } else {
-    installConfig('✅ Installed ".markdownlint-cli2.yaml" to project root')
+    installConfig('✅ Installed ".markdownlint-cli2.yaml" to project-root')
   }
 } catch (error) {
   console.error('❌ FAIL installing configuration file:', error.message);
