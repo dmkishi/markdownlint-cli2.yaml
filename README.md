@@ -22,5 +22,8 @@ npx @dmkishi/markdownlint-cli2.yaml --force
 
 Changelog
 --------------------------------------------------------------------------------
+### v0.0.2 (2025-11-21)
+- Fix install script.
+
 ### v0.0.1 (2025-11-21)
 - Initial release.

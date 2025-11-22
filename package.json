@@ -1,6 +1,6 @@
 {
   "name": "@dmkishi/markdownlint-cli2.yaml",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Install .markdownlint-cli2.yaml config file to project root",
   "author": "DM Kishi <dm.kishi@gmail.com>",
   "type": "module",
