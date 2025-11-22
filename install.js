@@ -44,7 +44,7 @@ function findProjectRootDir(startDir = process.cwd()) {
 
   while (true) {
     const packagePath = join(currentDir, 'package.json');
-    if (fs.existsSync(packagePath)) {
+    if (existsSync(packagePath)) {
       return currentDir;
     }
 
