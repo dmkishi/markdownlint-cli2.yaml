@@ -2,10 +2,15 @@
   "name": "@dmkishi/markdownlint-cli2.yaml",
   "version": "0.0.2",
   "description": "Install .markdownlint-cli2.yaml config file to project root",
+  "license": "MIT",
   "author": "DM Kishi <dm.kishi@gmail.com>",
   "type": "module",
   "bin": "install.js",
   "files": [".markdownlint-cli2.yaml"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmkishi/markdownlint-cli2.yaml"
+  },
   "scripts": {
     "prepare": "husky"
   },
