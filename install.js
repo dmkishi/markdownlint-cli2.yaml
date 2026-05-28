@@ -48,7 +48,7 @@ function findProjectRootDir(startDir = process.cwd()) {
       return currentDir;
     }
 
-    const parentDir = path.dirname(currentDir);
+    const parentDir = dirname(currentDir);
     if (parentDir === currentDir) {
       throw new Error('Not inside a Node.js project (no package.json found)');
     }
