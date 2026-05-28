@@ -12,6 +12,7 @@
     "url": "git+https://github.com/dmkishi/markdownlint-cli2.yaml"
   },
   "scripts": {
+    "prepublishOnly": "sh .husky/pre-push",
     "prepare": "husky"
   },
   "devDependencies": {
