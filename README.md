@@ -5,20 +5,15 @@ DM Kishi's custom YAML configuration for [markdownlint-cli2](https://github.com/
 Install
 --------------------------------------------------------------------------------
 ```sh
-# Install package.
-pnpm add --save-dev @dmkishi/markdownlint-cli2.yaml
-
-# Write `.markdownlint-cli2.yaml` to project root (overwrite if already there.)
-npx @dmkishi/markdownlint-cli2.yaml --force
+npx --yes @dmkishi/markdownlint-cli2.yaml@latest --force
 ```
 
-Update
---------------------------------------------------------------------------------
-Upon updating this package, it is necessary to **re-run the install command** to update this config file.
+This writes `.markdownlint-cli2.yaml` to the project root (walks up for the
+nearest `package.json`). Use `--force` to overwrite an existing file.
 
-```sh
-npx @dmkishi/markdownlint-cli2.yaml --force
-```
+### Updates
+Upon updates of this package, **re-run the install command** to pull the latest
+version of this config into the consumer project.
 
 Changelog
 --------------------------------------------------------------------------------
