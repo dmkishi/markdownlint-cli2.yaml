@@ -17,6 +17,11 @@ version of this config into the consumer project.
 
 Changelog
 --------------------------------------------------------------------------------
+### v0.0.4 (2026-5-28)
+- Simplify install process.
+- Fix install script.
+- Add prepublishOnly guard.
+
 ### v0.0.3 (2025-11-22)
 - Fix install script.
 - Etc.
