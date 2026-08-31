@@ -28,6 +28,13 @@ npx --yes "~/Documents/Projects/@dmkishi-markdownlint-cli2.yaml" --force
 
 Changelog
 --------------------------------------------------------------------------------
+### v0.1.0 (2026-8-31)
+- Support non-Node.js projects and plain directories.
+- Add JSDoc type annotations.
+- README:
+  - Switch install command to `pnpm dlx`.
+  - Add local installs instructions.
+
 ### v0.0.4 (2026-5-28)
 - Simplify install process.
 - Fix install script.
