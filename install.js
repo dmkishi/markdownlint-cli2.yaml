@@ -37,20 +37,32 @@ function findSourceConfigPath() {
 }
 
 /**
- * Find project-root directory from where this script is called.
+ * Find project-root directory from where this script is called. Fall back to
+ * the current directory if none is found.
  */
 function findProjectRootDir(startDir = process.cwd()) {
+  return (
+    findUpwards(startDir, 'package.json') ??
+    findUpwards(startDir, '.git') ??
+    startDir
+  );
+}
+
+/**
+ * Walk up from a directory to find the nearest ancestor containing the given
+ * marker, or `null` if none exists.
+ */
+function findUpwards(startDir, marker) {
   let currentDir = startDir;
 
   while (true) {
-    const packagePath = join(currentDir, 'package.json');
-    if (existsSync(packagePath)) {
+    if (existsSync(join(currentDir, marker))) {
       return currentDir;
     }
 
     const parentDir = dirname(currentDir);
     if (parentDir === currentDir) {
-      throw new Error('Not inside a Node.js project (no package.json found)');
+      return null;
     }
 
     currentDir = parentDir;

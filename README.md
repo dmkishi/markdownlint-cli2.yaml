@@ -8,8 +8,9 @@ Install
 pnpm dlx @dmkishi/markdownlint-cli2.yaml@latest --force
 ```
 
-This writes `.markdownlint-cli2.yaml` to the project root (walks up for the
-nearest `package.json`). Use `--force` to overwrite an existing file.
+This writes `.markdownlint-cli2.yaml` to the project root, found by walking up
+for the nearest `package.json` or `.git`. In a directory with neither, the
+current directory is used. Use `--force` to overwrite an existing file.
 
 ### Updates
 Upon updates of this package, **re-run the install command** to pull the latest
