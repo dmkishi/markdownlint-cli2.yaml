@@ -15,6 +15,16 @@ nearest `package.json`). Use `--force` to overwrite an existing file.
 Upon updates of this package, **re-run the install command** to pull the latest
 version of this config into the consumer project.
 
+Test
+--------------------------------------------------------------------------------
+```sh
+npx --yes "~/Documents/Projects/@dmkishi-markdownlint-cli2.yaml" --force
+```
+
+- `pnpm dlx` has no local-path form — it only resolves registry specs — so
+  `npx <dir>` is the substitute for the packed-install path.
+- The quotes are required because of the `@` and `.` in the directory name.
+
 Changelog
 --------------------------------------------------------------------------------
 ### v0.0.4 (2026-5-28)
