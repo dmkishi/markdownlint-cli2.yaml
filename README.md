@@ -5,7 +5,7 @@ DM Kishi's custom YAML configuration for [markdownlint-cli2](https://github.com/
 Install
 --------------------------------------------------------------------------------
 ```sh
-npx --yes @dmkishi/markdownlint-cli2.yaml@latest --force
+pnpm dlx @dmkishi/markdownlint-cli2.yaml@latest --force
 ```
 
 This writes `.markdownlint-cli2.yaml` to the project root (walks up for the
