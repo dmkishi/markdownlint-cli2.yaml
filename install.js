@@ -28,6 +28,8 @@ try {
 
 /**
  * Find config file in this script's directory.
+ *
+ * @returns {string} Absolute path to the bundled configuration file.
  */
 function findSourceConfigPath() {
   const thisFileName = fileURLToPath(import.meta.url);
@@ -39,6 +41,9 @@ function findSourceConfigPath() {
 /**
  * Find project-root directory from where this script is called. Fall back to
  * the current directory if none is found.
+ *
+ * @param {string} [startDir] Directory to start the search from.
+ * @returns {string} Absolute path to the project-root directory.
  */
 function findProjectRootDir(startDir = process.cwd()) {
   return (
@@ -50,7 +55,11 @@ function findProjectRootDir(startDir = process.cwd()) {
 
 /**
  * Walk up from a directory to find the nearest ancestor containing the given
- * marker, or `null` if none exists.
+ * marker.
+ *
+ * @param {string} startDir Directory to start walking up from.
+ * @param {string} marker File or directory name to look for.
+ * @returns {string | null} Absolute path to the matching ancestor directory.
  */
 function findUpwards(startDir, marker) {
   let currentDir = startDir;
@@ -69,6 +78,12 @@ function findUpwards(startDir, marker) {
   }
 }
 
+/**
+ * Copy the config file to the project-root directory.
+ *
+ * @param {string} message Success message to print.
+ * @returns {void}
+ */
 function installConfig(message) {
   copyFileSync(sourceConfigPath, targetConfigPath);
   console.log(message);
