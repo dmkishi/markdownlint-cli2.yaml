@@ -28,6 +28,13 @@ MARKDOWNLINT_CLI2_YAML_URL="file://$HOME/Documents/Projects/@dmkishi-markdownlin
 
 Changelog
 --------------------------------------------------------------------------------
+### v0.2.0 (2026-8-31)
+- Switch to a language-agnostic installer with a `curl | sh` one-liner.
+  - The config is written to the current directory rather than a detected
+    project root.
+  - The package is no longer published to npm.
+- Stamp version banner to config.
+
 ### v0.1.0 (2026-8-31)
 - Support non-Node.js projects and plain directories.
 - Add JSDoc type annotations.
