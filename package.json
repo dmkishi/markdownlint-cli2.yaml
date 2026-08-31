@@ -5,14 +5,13 @@
   "license": "MIT",
   "author": "DM Kishi <dm.kishi@gmail.com>",
   "type": "module",
-  "bin": "install.js",
-  "files": [".markdownlint-cli2.yaml"],
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dmkishi/markdownlint-cli2.yaml"
   },
   "scripts": {
-    "prepublishOnly": "sh .husky/pre-push",
+    "check": "sh .husky/pre-push",
     "prepare": "husky"
   },
   "devDependencies": {

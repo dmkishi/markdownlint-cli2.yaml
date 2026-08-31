@@ -1,8 +1,7 @@
-# This config file installed via "@dmkishi/markdownlint-cli2.yaml".
-# See <https://www.npmjs.com/package/@dmkishi/markdownlint-cli2.yaml>
+# This config file installed via <https://github.com/dmkishi/markdownlint-cli2.yaml>.
 #
-# To pull the latest version of this config:
-# `npx --yes @dmkishi/markdownlint-cli2.yaml@latest --force`
+# To pull the latest version of this config, run:
+#   `curl -fsSL https://raw.githubusercontent.com/dmkishi/markdownlint-cli2.yaml/main/install.sh | sh -s -- --force`
 
 gitignore: true
 globs: ["**/*.md"]

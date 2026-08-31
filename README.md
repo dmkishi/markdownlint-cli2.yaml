@@ -5,26 +5,26 @@ DM Kishi's custom YAML configuration for [markdownlint-cli2](https://github.com/
 Install
 --------------------------------------------------------------------------------
 ```sh
-pnpm dlx @dmkishi/markdownlint-cli2.yaml@latest --force
+curl -fsSL https://raw.githubusercontent.com/dmkishi/markdownlint-cli2.yaml/main/install.sh | sh -s -- --force
 ```
 
-This writes `.markdownlint-cli2.yaml` to the project root, found by walking up
-for the nearest `package.json` or `.git`. In a directory with neither, the
-current directory is used. Use `--force` to overwrite an existing file.
+This writes `.markdownlint-cli2.yaml` to the current directory, so run it from
+the project root. Use `--force` to overwrite an existing file.
 
 ### Updates
-Upon updates of this package, **re-run the install command** to pull the latest
-version of this config into the consumer project.
+Upon updates of this config, **re-run the install command** to pull the latest
+version into the consumer project.
 
 Test
 --------------------------------------------------------------------------------
-```sh
-npx --yes "~/Documents/Projects/@dmkishi-markdownlint-cli2.yaml" --force
-```
+Run the script against the local config instead of GitHub by overriding the
+source URL (requires `curl`; `wget` has no `file://` support):
 
-- `pnpm dlx` has no local-path form — it only resolves registry specs — so
-  `npx <dir>` is the substitute for the packed-install path.
-- The quotes are required because of the `@` and `.` in the directory name.
+```sh
+cd "$(mktemp -d)"
+MARKDOWNLINT_CLI2_YAML_URL="file://$HOME/Documents/Projects/@dmkishi-markdownlint-cli2.yaml/.markdownlint-cli2.yaml" \
+  sh "$HOME/Documents/Projects/@dmkishi-markdownlint-cli2.yaml/install.sh" --force
+```
 
 Changelog
 --------------------------------------------------------------------------------
