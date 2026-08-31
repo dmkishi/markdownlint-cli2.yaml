@@ -6,8 +6,8 @@ import { fileURLToPath } from 'url';
 const hasForceFlag = process.argv.includes('--force');
 
 const sourceConfigPath = findSourceConfigPath();
-const destConfigPath = join(findProjectRootDir(), '.markdownlint-cli2.yaml');
-const configInProjectRootDir = existsSync(destConfigPath);
+const targetConfigPath = join(findProjectRootDir(), '.markdownlint-cli2.yaml');
+const configInProjectRootDir = existsSync(targetConfigPath);
 
 try {
   if (configInProjectRootDir) {
@@ -58,6 +58,6 @@ function findProjectRootDir(startDir = process.cwd()) {
 }
 
 function installConfig(message) {
-  copyFileSync(sourceConfigPath, destConfigPath);
+  copyFileSync(sourceConfigPath, targetConfigPath);
   console.log(message);
 }
