@@ -1,4 +1,5 @@
-# This config file installed via <https://github.com/dmkishi/markdownlint-cli2.yaml>.
+# https://github.com/dmkishi/markdownlint-cli2.yaml
+# version: 0.2.0
 #
 # To pull the latest version of this config, run:
 #   `curl -fsSL https://raw.githubusercontent.com/dmkishi/markdownlint-cli2.yaml/main/install.sh | sh -s -- --force`
