@@ -1,6 +1,8 @@
 Kishi's .markdownlint-cli2.yaml
 ================================================================================
-DM Kishi's custom YAML configuration for [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2).
+DM Kishi's highly opinionated and non-standard YAML configuration for
+[markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2). Not
+recommended for group or collaborative projects.
 
 Install
 --------------------------------------------------------------------------------
