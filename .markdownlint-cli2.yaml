@@ -1,5 +1,5 @@
 # https://github.com/dmkishi/markdownlint-cli2.yaml
-# version: 0.2.0
+# version: 0.2.1
 #
 # To pull the latest version of this config, run:
 #   `curl -fsSL https://raw.githubusercontent.com/dmkishi/markdownlint-cli2.yaml/main/install.sh | sh -s -- --force`
@@ -23,3 +23,13 @@ config:
   # Emits false negatives when last cell is empty without a trailing pipe.
   table-pipe-style: false
   table-column-count: false
+
+  first-line-heading:
+    # Overly permissive as it allows any content prior to the first heading but
+    # it is not uncommon to include an image at the top. A workaround is to use
+    # an HTML `<h1>` for both the image and the title, accepted by MD041, but it
+    # is unsightly. Another option is to use an inline comment to disable MD041,
+    # e.g. `<!-- markdownlint-disable-file first-line-heading -->` but it is not
+    # ideal either. Finally, a custom rule can be employed to assert only images
+    # but that feels excessive. This is a compromise.
+    allow_preamble: true
